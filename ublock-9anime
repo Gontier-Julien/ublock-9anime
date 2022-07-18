@@ -14,9 +14,9 @@
 
 # Ensuring the recaptcha api always loads
 @@||google.com/recaptcha/*
-###########################################################################################
+##########################################################################
 # 9Anime Visual Tweaks
-###########################################################################################
+##########################################################################
 # The following removes empty ad-windows
 9anime.*##section.sda
 
@@ -29,7 +29,7 @@
 9anime.*##+js(abort-current-inline-script, window.open, Cookie)
 9anime.*##+js(abort-current-script, setTimeout, String.fromCharCode)
 
-#Remove uneded stuff and not trusted server
+# Remove uneded stuff and not trusted server
 9anime.*##.guest
 9anime.*##.socials
 9anime.*###comment
@@ -39,15 +39,14 @@
 9anime.*##.textlinks
 9anime.*##.report
 9anime.*##.alert-warning.alert
-###########################################################################################
-#Disqus Fixes & Tweaks
-###########################################################################################
-#Advertising & Tracking Removal
+##########################################################################
+# Disqus Fixes & Tweaks
+# Advertising & Tracking Removal
 ||disqus.com/api/ping
 ||referrer.disqus.com^
-###########################################################################################
+##########################################################################
 # External Player Tweaks
-###########################################################################################
+##########################################################################
 # Common
 # Anti-Advertisements
 ||google-analytics.com^
@@ -60,7 +59,7 @@
 ||24vunvrv.com^
 ||xmlrtb.com^
 ||zap.buzz^
-###########################################################################################
+##########################################################################
 # StreamTape
 # Anti-Advertising & Fixes
 streamtape.*##[class*="bn-container"], div[style*="z-index: 300000;"]
@@ -75,7 +74,7 @@ streamta.pe*#@#.google-ad
 ||in-page-push.com^$important
 @@||google.com^$script,domain=streamtape.com|streamtape.net|streamta.pe
 @@||gstatic.com^$script,domain=streamtape.com|streamtape.net|streamta.pe
-###########################################################################################
+##########################################################################
 # VideoVard
 # Anti-Advertising & Fixes
 ||pubtrack.co^
@@ -88,7 +87,7 @@ streamta.pe*#@#.google-ad
 ||questionsadjournasleep.com^
 @@/js/prebid-ads.js$script,1p
 @@||cdnjs.cloudflare.com/ajax/libs/fuckadblock$script
-###########################################################################################
+##########################################################################
 # Mp4Upload 
 # Anti-Advertising & Fixes
 ||geedoovu.net^
@@ -101,9 +100,9 @@ videovard.to,videovard.sx###MyDickIsFat
 videovard.to,videovard.sx###NotReallyYouHaveSmallOne
 videovard.to,videovard.sx###nux > div > div > div[id]
 videovard.to,videovard.sx##.jw-reset.jw-wrapper:style(z-index:2147483647 !important)
-###########################################################################################
+##########################################################################
 # uBO Imports
-###########################################################################################
+##########################################################################
 # Vidstream uBO Injects
 vidstream.*##+js(no-setInterval-if, break)
 Vidstream.*##+js(window.open-defuser)
@@ -142,9 +141,8 @@ videovard.*#@#+js(addEventListener-defuser, mouseup, catch)
 videovard.*##+js(abort-on-property-read, FuckAdBlock)
 videovard.*##+js(no-setInterval-if, 0x)
 videovard.*##+js(window.open-defuser)
-######################################################################################################################################################################################
+##########################################################################
 # Standalone imports from other filter-lists
-###########################################################################################
 # 9Anime Ads & Ad-Trackers
 ||evergreensame.com^
 ||onesignal.com^
@@ -165,4 +163,3 @@ videovard.*##+js(window.open-defuser)
 ||googletagmanager.com^$domain=9anime.to|9anime.id|9anime.cz|9anime.ws|9anime.me
 ||google.com^$domain=9anime.to|9anime.id|9anime.cz|9anime.ws|9anime.me
 ||gstatic.com^$domain=9anime.to|9anime.id|9anime.cz|9anime.ws|9anime.me
-###########################################################################################
