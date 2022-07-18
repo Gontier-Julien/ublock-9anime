@@ -1,0 +1,168 @@
+##########################################################################
+# Title: 9Anime Filter-list: No Ads by Julien
+# Description: Filters to block ads from 9Anime and block malicious code.
+# Last Update: 22/01/2022
+##########################################################################
+# General 9Anime Fixes
+# Average user experence fixes (Fixes the website)
+@@||9anime.*$~third-party,domain=9anime.to|9anime.id|9anime.cz|9anime.ws|9anime.me
+
+# Fix for certain videos never loading, mostly on mobile but it may cause issues on personal computers too.
+# This also resolves certain stylesheet issues, wherein it wouldn't load the css file.
+@@||bunnycdn.*
+@@||fastcache.ru*
+
+# Ensuring the recaptcha api always loads
+@@||google.com/recaptcha/*
+###########################################################################################
+# 9Anime Visual Tweaks
+###########################################################################################
+# The following removes empty ad-windows
+9anime.*##section.sda
+
+# Inject scriplets to prevent creation of sidebar ads & rogue advertisements.
+9anime.*##+js(window.open-defuser)
+9anime.*##+js(abort-on-property-read, mm)
+9anime.*##+js(abort-on-property-write, _pop)
+9anime.*##+js(set-constant, console.clear, undefined)
+9anime.*##+js(abort-current-script, Math, break;case $.)
+9anime.*##+js(abort-current-inline-script, window.open, Cookie)
+9anime.*##+js(abort-current-script, setTimeout, String.fromCharCode)
+
+#Remove uneded stuff and not trusted server
+9anime.*##.guest
+9anime.*##.socials
+9anime.*###comment
+9anime.*###server28
+9anime.*###server41
+9anime.*##.options > span:last-child
+9anime.*##.textlinks
+9anime.*##.report
+9anime.*##.alert-warning.alert
+###########################################################################################
+#Disqus Fixes & Tweaks
+###########################################################################################
+#Advertising & Tracking Removal
+||disqus.com/api/ping
+||referrer.disqus.com^
+###########################################################################################
+# External Player Tweaks
+###########################################################################################
+# Common
+# Anti-Advertisements
+||google-analytics.com^
+||glamourgreek.com^
+||beefraidmob.com^
+||venetrigni.com^
+||toromclick.com^
+||adplatform.io^
+||xmllover.com^
+||24vunvrv.com^
+||xmlrtb.com^
+||zap.buzz^
+###########################################################################################
+# StreamTape
+# Anti-Advertising & Fixes
+streamtape.*##[class*="bn-container"], div[style*="z-index: 300000;"]
+streamtape.*#@#.google-ad
+streamta.pe*#@#.google-ad
+||adsco.re^
+||mc.yandex.ru^
+||onergong.com^
+||roujaufu.net^
+||streamtape.com/adult
+||inpagepush.com^$important
+||in-page-push.com^$important
+@@||google.com^$script,domain=streamtape.com|streamtape.net|streamta.pe
+@@||gstatic.com^$script,domain=streamtape.com|streamtape.net|streamta.pe
+###########################################################################################
+# VideoVard
+# Anti-Advertising & Fixes
+||pubtrack.co^
+||cagothie.net^
+||news-easy.org^
+||collidetunnel.com^
+||fendhaunteddelay.com^
+||octaviancontrast.com^
+||kolkwi4tzicraamabilis.com^
+||questionsadjournasleep.com^
+@@/js/prebid-ads.js$script,1p
+@@||cdnjs.cloudflare.com/ajax/libs/fuckadblock$script
+###########################################################################################
+# Mp4Upload 
+# Anti-Advertising & Fixes
+||geedoovu.net^
+||snagbaudhulas.com^
+|https://$script,third-party,domain=mp4upload.com
+*$script,redirect-rule=noopjs,domain=mp4upload.com
+
+# Visual Tweaks (Overlay removal)
+videovard.to,videovard.sx###MyDickIsFat
+videovard.to,videovard.sx###NotReallyYouHaveSmallOne
+videovard.to,videovard.sx###nux > div > div > div[id]
+videovard.to,videovard.sx##.jw-reset.jw-wrapper:style(z-index:2147483647 !important)
+###########################################################################################
+# uBO Imports
+###########################################################################################
+# Vidstream uBO Injects
+vidstream.*##+js(no-setInterval-if, break)
+Vidstream.*##+js(window.open-defuser)
+vidstreamz.online##+js(no-setInterval-if, break)
+vidstreamz.online##+js(window.open-defuser)
+
+# This filter stops Vidstream from disabling the right-click context menu.
+vidstream.*##+js(aopr, HTMLElement.prototype.oncontextmenu)
+vidstreamz.online##+js(aopr, HTMLElement.prototype.oncontextmenu)
+
+# StreamTape
+streamtape.*##+js(abort-current-inline-script, document.createElement, 'script')
+streamtape.*##+js(abort-on-stack-trace, Math.random, /\st\.[a-zA-Z]*\s/)
+streamtape.*##+js(abort-on-property-write, _pop)
+streamtape.*##+js(no-setInterval-if, adblock)
+streamtape.*##+js(set-constant, towait, 0)
+streamtape.*##+js(window.open-defuser)
+streamta.pe##+js(abort-current-inline-script, document.createElement, 'script')
+streamta.pe##+js(abort-on-stack-trace, Math.random, /\st\.[a-zA-Z]*\s/)
+streamta.pe##+js(abort-on-property-write, _pop)
+streamta.pe##+js(no-setInterval-if, adblock)
+streamta.pe##+js(set-constant, towait, 0)
+streamta.pe##+js(window.open-defuser)
+
+# This filter stops StreamTape from disabling the right-click context menu.
+streamtape.*##+js(addEventListener-defuser.js, contextmenu)
+streamta.pe##+js(addEventListener-defuser.js, contextmenu)
+
+# Mp4Upload
+mp4upload.com##+js(abort-on-property-write, adcashMacros)
+mp4upload.com##+js(abort-on-property-write, _pop)
+mp4upload.com##+js(popads-dummy)
+
+# VideoVard
+videovard.*#@#+js(addEventListener-defuser, mouseup, catch)
+videovard.*##+js(abort-on-property-read, FuckAdBlock)
+videovard.*##+js(no-setInterval-if, 0x)
+videovard.*##+js(window.open-defuser)
+######################################################################################################################################################################################
+# Standalone imports from other filter-lists
+###########################################################################################
+# 9Anime Ads & Ad-Trackers
+||evergreensame.com^
+||onesignal.com^
+||pushyfen.com^
+||bidgear.com^
+||advinci.uno^
+||revrtb.com^
+||apus.tech^
+||amung.us^
+||bebi.com^
+||fastestvolcano.com^
+||google-analytics.com^
+||24vunvrv.com^
+||zap.buzz^
+||mcloud.to^
+||vidstream.pro^
+||yandex.ru^
+||googletagmanager.com^$domain=9anime.to|9anime.id|9anime.cz|9anime.ws|9anime.me
+||google.com^$domain=9anime.to|9anime.id|9anime.cz|9anime.ws|9anime.me
+||gstatic.com^$domain=9anime.to|9anime.id|9anime.cz|9anime.ws|9anime.me
+###########################################################################################
