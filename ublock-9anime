@@ -1,7 +1,7 @@
 ##########################################################################
 # Title: 9Anime Filter-list: No Ads by Julien
 # Description: Filters to block ads from 9Anime and block malicious code.
-# Last Update: 22/01/2022
+# Last Update: 23/07/2022
 ##########################################################################
 # General 9Anime Fixes
 # Average user experence fixes (Fixes the website)
@@ -19,6 +19,7 @@
 ##########################################################################
 # The following removes empty ad-windows
 9anime.*##section.sda
+9anime.*##.adx
 
 # Inject scriplets to prevent creation of sidebar ads & rogue advertisements.
 9anime.*##+js(window.open-defuser)
@@ -30,15 +31,11 @@
 9anime.*##+js(abort-current-script, setTimeout, String.fromCharCode)
 
 # Remove uneded stuff and not trusted server
-9anime.*##.guest
 9anime.*##.socials
-9anime.*###comment
-9anime.*###server28
-9anime.*###server41
-9anime.*##.options > span:last-child
-9anime.*##.textlinks
-9anime.*##.report
-9anime.*##.alert-warning.alert
+9anime.*###comments
+9anime.*##li:has-text(MyCloud)
+9anime.*##li:has-text(Vidstream)
+9anime.*##.brating
 ##########################################################################
 # Disqus Fixes & Tweaks
 # Advertising & Tracking Removal
@@ -154,7 +151,6 @@ videovard.*##+js(window.open-defuser)
 ||amung.us^
 ||bebi.com^
 ||fastestvolcano.com^
-||google-analytics.com^
 ||24vunvrv.com^
 ||zap.buzz^
 ||mcloud.to^
