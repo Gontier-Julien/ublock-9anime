@@ -1,7 +1,7 @@
 ##########################################################################
 # Title: 9Anime Filter-list: No Ads by Julien
 # Description: Filters to block ads from 9Anime and block malicious code.
-# Last Update: 11/10/2022
+# Last Update: 22/02/2023
 ##########################################################################
 # General 9Anime Fixes
 # Average user experence fixes (Fixes the website)
@@ -38,6 +38,10 @@
 9anime.*##.brating
 9anime.*###donate
 9anime.*##.justify-content-end.align-items-center.d-flex
+##########################################################################
+#Filemoon fixes
+@@||*.filemoon.sx
+@@||*.dasmanksdajkdasd.com
 ##########################################################################
 # Disqus Fixes & Tweaks
 # Advertising & Tracking Removal
