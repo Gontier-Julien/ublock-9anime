@@ -1,9 +1,9 @@
 ##########################################################################
-# Title: aniwave (Aka 9anime) Filter-list: No Ads by Julien
-# Description: Filters to block ads from aniwave and block malicious code.
+# Title: Aniwave (Aka 9anime) Filter-list: No Ads by Julien
+# Description: Filters to block ads from Aniwave (Aka 9anime) and block malicious code.
 # Last Update: 12/08/2023
 ##########################################################################
-# General aniwave Fixes
+# General Aniwave Fixes
 # Average user experence fixes (Fixes the website)
 @@||aniwave.*$~third-party,domain=aniwave.to|aniwave.id|aniwave.cz|aniwave.ws|aniwave.me
 
