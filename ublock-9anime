@@ -11,6 +11,9 @@
 # This also resolves certain stylesheet issues, wherein it wouldn't load the css file.
 @@||bunnycdn.*
 @@||fastcache.ru*
+@@||kerapoxy.cc
+@@||vidplay.online
+@@||a22c525ed.site
 
 # Ensuring the recaptcha api always loads
 @@||google.com/recaptcha/*
@@ -63,21 +66,6 @@ aniwave.*##.justify-content-end.align-items-center.d-flex
 ||xmlrtb.com^
 ||zap.buzz^
 ##########################################################################
-# StreamTape
-# Anti-Advertising & Fixes
-streamtape.*##[class*="bn-container"], div[style*="z-index: 300000;"]
-streamtape.*#@#.google-ad
-streamta.pe*#@#.google-ad
-||adsco.re^
-||mc.yandex.ru^
-||onergong.com^
-||roujaufu.net^
-||streamtape.com/adult
-||inpagepush.com^$important
-||in-page-push.com^$important
-@@||google.com^$script,domain=streamtape.com|streamtape.net|streamta.pe
-@@||gstatic.com^$script,domain=streamtape.com|streamtape.net|streamta.pe
-##########################################################################
 # VideoVard
 # Anti-Advertising & Fixes
 ||pubtrack.co^
@@ -115,24 +103,6 @@ vidstreamz.online##+js(window.open-defuser)
 # This filter stops Vidstream from disabling the right-click context menu.
 vidstream.*##+js(aopr, HTMLElement.prototype.oncontextmenu)
 vidstreamz.online##+js(aopr, HTMLElement.prototype.oncontextmenu)
-
-# StreamTape
-streamtape.*##+js(abort-current-inline-script, document.createElement, 'script')
-streamtape.*##+js(abort-on-stack-trace, Math.random, /\st\.[a-zA-Z]*\s/)
-streamtape.*##+js(abort-on-property-write, _pop)
-streamtape.*##+js(no-setInterval-if, adblock)
-streamtape.*##+js(set-constant, towait, 0)
-streamtape.*##+js(window.open-defuser)
-streamta.pe##+js(abort-current-inline-script, document.createElement, 'script')
-streamta.pe##+js(abort-on-stack-trace, Math.random, /\st\.[a-zA-Z]*\s/)
-streamta.pe##+js(abort-on-property-write, _pop)
-streamta.pe##+js(no-setInterval-if, adblock)
-streamta.pe##+js(set-constant, towait, 0)
-streamta.pe##+js(window.open-defuser)
-
-# This filter stops StreamTape from disabling the right-click context menu.
-streamtape.*##+js(addEventListener-defuser.js, contextmenu)
-streamta.pe##+js(addEventListener-defuser.js, contextmenu)
 
 # Mp4Upload
 mp4upload.com##+js(abort-on-property-write, adcashMacros)
